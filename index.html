@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartFee Master - AVVM Sri Pushpam College</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="container" id="loginPage">
+  <center>
+    <img src="charge.png" height="100px" width="100px">
+    <h2 class="title" style="color: darkred;">SmartFee Master</h2>
+    <h2 class="subtitle">A.V.V.M SRI PUSHUPAM COLLEGE</h2>
+    <h3>Sign into account</h3>
+  </center>
+  <form id="loginForm">
+    <label for="username">Username</label>
+    <input type="text" id="username" required />
+    <label for="password">Password</label>
+    <input type="password" id="password" required />
+    <button type="submit">Login</button>
+  </form>
+  <p id="loginError" class="error hidden">Invalid credentials, please try again.</p>
+</div>
+
+<!-- BILLING PAGE -->
+<div class="container hidden" id="billingPage">
+  <center><h2>Student Billing Form</h2></center> 
+  <form id="billForm">
+    <input type="text" id="registerNo" placeholder="Register Number" required />
+    <input type="text" id="studentName" placeholder="Student Name" required />
+    <select id="department" required>
+      <option value=" B.A. in Economics">B.A. in Economics</option>
+                    <option value="B.A. in History">B.A. in History</option>
+                    <option value="B.A. in English">B.A. in English</option>
+                    <option value="B.A. in Indian Culture">B.A. in Indian Culture</option>
+                    <option value="B.A. in Tamil">B.A. in Tamil</option>
+                    <option value="B.Sc. in Computer Science">B.Sc. inComputer Science</option>
+                    <option value=" B.Sc. in Computer Science">B.Sc. in Computer Science</option>
+                    <option value="B.Sc. in Botany">B.Sc. in Botany</option>
+                    <option value="B.Sc. in Geography">B.Sc. in Geography</option>
+                    <option value="B.Sc. in Zoology">B.Sc. in Zoology</option>
+                    <option value="B.Sc. in Chemistry">B.Sc. in Chemistry</option>
+                    <option value="B.Sc. in Mathematics">B.Sc. in Mathematics</option>
+                    <option value="B.Sc. in Statistics">B.Sc. in Statistics</option>
+                    <option value="B.Sc. in Physics">B.Sc. in Physics</option>
+<option value="B.B.A. Bachelor of Business Administration
+">B.B.A. Bachelor of Business Administration</option>
+             <option value="B.C.A. Bachelor of Computer Application "> B.C.A. Bachelor of Computer Application</option>
+             <option value="B.Com.Bachelor of Commerce ">B.Com. Bachelor of Commerce </option>
+             <option value="B.Litt. in Tamil">B.Litt. in Tamil</option>
+             <option value="M.Sc. in Botany">M.Sc. in Botany</option>
+             <option value="M.Sc. in Mathematics">M.Sc. in Mathematics</option>
+             <option value="M.Sc. in Chemistry">M.Sc. in Chemistry</option>
+             <option value="M.Sc. in Mathematics">M.Sc. in Mathematics</option>
+             <option value="M.Sc. in Information Technology">M.Sc. in Information Technology</option>
+             <option value="M.Sc. in Physics">M.Sc. in Physics</option>
+             <option value="M.Sc. in Biotechnology">M.Sc. in Biotechnology</option>
+ <option value="M.C.A. Master of Computer Applications">M.C.A. Master ofComputer Applications</option>
+<option value="M.B.A. Master of Business Administration  ">M.B.A. Master of Business Administration</option>
+      <!-- Add more departments as needed -->
+    </select>
+    <select id="billType" required>
+      <option value="">Select Bill Type</option>
+      <option value="Tuition">Tuition</option>
+      <option value="Bus">Bus</option>
+    </select>
+    <input type="number" id="semesterNumber" placeholder="Semester Number" required />
+    <input type="number" id="billAmount" placeholder="Amount" required />
+    <input type="date" id="billDate" required />
+    <button type="submit">Add Bill</button>
+  </form>
+
+  <h3>Billing Records</h3>
+  <table id="billsTable">
+    <thead>
+      <tr>
+        <th>Reg No</th>
+        <th>Name</th>
+        <th>Dept</th>
+        <th>Type</th>
+        <th>Sem</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<!-- BILL RECEIPT -->
+<div id="billReceipt" class="hidden">
+  <div class="receipt-box">
+    <div class="receipt-header">
+      <img src="download.jpeg" height="60px" width="60px" alt="College Logo" class="logo" />
+      <div>
+        <h1>AVVM Sri Pushpam College</h1>
+        <h2>SRI PUSHPAM COLLEGE (AUTONOMOUS)</h2>
+        <h3>POONDHI - 613503, THANJAVUR</h3>
+      </div>
+    </div>
+    <hr />
+
+    <div class="receipt-meta">
+      <div><strong>Receipt No:</strong> <span id="receiptNo"></span></div>
+      <div><strong>Issue Date:</strong> <span id="issueDate"></span></div>
+    </div>
+
+    <h3>Student Fee Receipt</h3>
+    <table class="receipt-table">
+      <tr><td>Register Number</td><td id="rReg"></td></tr>
+      <tr><td>Student Name</td><td id="rName"></td></tr>
+      <tr><td>Department</td><td id="rDept"></td></tr>
+      <tr><td>Bill Type</td><td id="rType"></td></tr>
+      <tr><td>Semester No</td><td id="rSem"></td></tr>
+      <tr><td>Amount Paid</td><td>₹<span id="rAmount"></span></td></tr>
+      <tr><td>Rupees</td><td id="rAmountWords"></td></tr>
+      <tr><td>Payment Date</td><td id="rDate"></td></tr>
+    </table>
+
+    <div class="signature-section">
+      <p><strong>FOR AVVMSPC</strong></p>
+    </div>
+
+    <p class="print-note">This is a computer-generated receipt and does not require a physical signature.</p>
+
+    <button onclick="triggerPrint()">Print Receipt</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
